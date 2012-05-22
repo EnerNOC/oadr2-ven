@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSpy v2010 rel. 3 (http://www.altova.com) by James Zuber (private) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:strm="urn:ietf:params:xml:ns:icalendar-2.0:stream" xmlns:ei="http://docs.oasis-open.org/ns/energyinterop/201110" targetNamespace="urn:ietf:params:xml:ns:icalendar-2.0:stream" elementFormDefault="qualified" attributeFormDefault="qualified">
+   <xs:import namespace="http://docs.oasis-open.org/ns/energyinterop/201110" schemaLocation="oadr_ei_20a_032212.xsd"/>
+   <!--  ******* intervals ******** -->
+   <xs:element name="intervals">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element ref="ei:interval" maxOccurs="unbounded"/>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+</xs:schema>

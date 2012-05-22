@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+	    <groupId>org.enernoc.open.oadr2</groupId>
+	    <artifactId>oadr2-parent</artifactId>
+	    <version>0.1-SNAPSHOT</version>
+    </parent>
+    <artifactId>oadr2-xmpp</artifactId>
+    <packaging>jar</packaging>
+    <name>OpenADR2 Open Reference Implementation for XMPP</name>
+    <description>XMPP client reference implementation for OpenADR 2.0, provided by EnerNOC
+    </description>
+		<url>http://open.enernoc.org/openadr2</url>
+    
+    <properties>
+    </properties>
+  
+    <dependencies>
+				<dependency>
+					<artifactId>oadr2-model</artifactId>
+					<groupId>${pom.groupId}</groupId>
+					<version>${pom.version}</version>
+	      </dependency>
+				<dependency>
+					<groupId>org.igniterealtime.smack</groupId>
+					<artifactId>smack</artifactId>
+					<version>3.2.1</version>
+	      </dependency>
+				<dependency>
+					<groupId>org.igniterealtime.smack</groupId>
+					<artifactId>smackx</artifactId>
+					<version>3.2.1</version>
+          <scope>test runtime</scope>
+				</dependency>
+				<dependency>
+					<groupId>com.sun.xml.bind</groupId>
+					<artifactId>jaxb-impl</artifactId>
+					<version>2.2.5.1</version>
+				</dependency>
+				
+    		<!-- Use Log4J for logging. This artifact also pulls in the Log4J JAR. -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.5.8</version>
+        </dependency>				
+    </dependencies>
+  
+    <build>
+    </build>
+  
+    <repositories>
+    </repositories>
+  
+    <pluginRepositories>
+    </pluginRepositories>
+  
+    <profiles>
+    </profiles>
+</project>
