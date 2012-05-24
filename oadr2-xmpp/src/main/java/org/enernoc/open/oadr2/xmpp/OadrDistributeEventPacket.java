@@ -61,7 +61,7 @@ class OadrDistributeEventPacket implements PacketExtension {
 		}
 	}		
 
-	public static class Provider implements /*PacketExtensionProvider,*/ IQProvider {
+	public static class Provider implements PacketExtensionProvider, IQProvider {
 	
 		JAXBContext jaxbContext;
 		PullUnmarshaller unmarshaller;
@@ -74,12 +74,12 @@ class OadrDistributeEventPacket implements PacketExtension {
 			catch ( JAXBException ex ) {
 				throw new RuntimeException("Error initializing JAXB context",ex);
 			}
-			System.out.println("++++++++++++++++++++ LOADED OADR Packet Extension Provider");
+//			System.out.println("++++++++++++++++++++ LOADED OADR Packet Extension Provider");
 		}
 		
-//		@Override
+		@Override
 		public PacketExtension parseExtension(XmlPullParser pullParser) throws Exception {
-			System.out.println( "++++++++++++++++++++++++++ Parsing Extension!!!" );
+//			System.out.println( "++++++++++++++++++++++++++ Parsing Extension!!!" );
 			return new OadrDistributeEventPacket( 
 					(OadrDistributeEvent)unmarshaller.unmarshalSubTree(pullParser), 
 					this.jaxbContext );		
@@ -87,7 +87,7 @@ class OadrDistributeEventPacket implements PacketExtension {
 
 		@Override
 		public IQ parseIQ(XmlPullParser parser) throws Exception {
-			System.out.println( "++++++++++++++++++++++++++ Parsing IQ!!!" );
+//			System.out.println( "++++++++++++++++++++++++++ Parsing IQ!!!" );
 			return new OADR2IQ( new OadrDistributeEventPacket( 
 					(OadrDistributeEvent)unmarshaller.unmarshalSubTree(parser), 
 		 			this.jaxbContext ) );

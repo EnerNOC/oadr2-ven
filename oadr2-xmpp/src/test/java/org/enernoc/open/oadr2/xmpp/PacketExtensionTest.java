@@ -84,10 +84,8 @@ public class PacketExtensionTest {
     }
     
 	@Before public void setUp() throws Exception {
-		JAXBContext jaxbContext = JAXBContext.newInstance("org.enernoc.open.oadr2.model");
-		this.marshaller = jaxbContext.createMarshaller();
-		marshaller.setProperty(Marshaller.JAXB_FRAGMENT, Boolean.TRUE);
-		OADR2NamespacePrefixMapper nsMapper = new OADR2NamespacePrefixMapper(marshaller);
+		JAXBManager jaxb = new JAXBManager();
+		this.marshaller = jaxb.createMarshaller();
 		xmlDataTypeFac = DatatypeFactory.newInstance();
 
 	    this.venConnection = connect("ven"); 		
@@ -111,7 +109,7 @@ public class PacketExtensionTest {
 		OADRPacketCollector packetCollector = new OADRPacketCollector();
 	    venConnection.addPacketListener(packetCollector, new OADRPacketFilter());
 	    
-	    IQ iq = new OADR2IQ(new OadrDistributeEventPacket(createEventPayload(), this.marshaller));
+	    IQ iq = new OADR2IQ(new OADR2PacketExtension(createEventPayload(), this.marshaller));
 	    iq.setTo(venConnection.getUser());
 	    iq.setType(IQ.Type.SET);
 	    
@@ -120,8 +118,14 @@ public class PacketExtensionTest {
 	    Packet packet = packetCollector.getQueue().poll(5,TimeUnit.SECONDS);
 	    
 	    assertNotNull(packet);
-	    OadrDistributeEventPacket payload = (OadrDistributeEventPacket)packet.getExtension(OADR2_XMLNS);
-	    assertEquals("oadrDistributeEvent", payload.getElementName());
+	    OADR2PacketExtension extension = (OADR2PacketExtension)packet.getExtension(OADR2_XMLNS);
+	    assertEquals("oadrDistributeEvent", extension.getElementName());
+	    assertEquals("http://openadr.org/oadr-2.0a/2012/03", extension.getNamespace());
+	    Object pObj = extension.getPayload(); 
+	    assertNotNull( pObj );
+	    assert( pObj instanceof OadrDistributeEvent );
+	    OadrDistributeEvent payload = (OadrDistributeEvent)pObj;
+	    assertEquals("test-123", payload.getRequestID());
 	}
 	
 	class OADRPacketCollector implements PacketListener {

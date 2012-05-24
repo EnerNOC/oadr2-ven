@@ -1,15 +1,15 @@
 <?xml version="1.0"?>
 <smackProviders>
-<!--
+	<iqProvider>
+		<elementName>oadrDistributeEvent</elementName>
+		<namespace>http://openadr.org/oadr-2.0a/2012/03</namespace>
+		<className>org.enernoc.open.oadr2.xmpp.XMPPExtensionProvider</className>
+	</iqProvider>
+
+	<!-- For OADR payloads that occur in messages: -->
 	<extensionProvider>
 		<elementName>oadrDistributeEvent</elementName>
 		<namespace>http://openadr.org/oadr-2.0a/2012/03</namespace>
 		<className>org.enernoc.open.oadr2.xmpp.OadrDistributeEventPacket$Provider</className>
 	</extensionProvider>
-	-->
-	<iqProvider>
-		<elementName>oadrDistributeEvent</elementName>
-		<namespace>http://openadr.org/oadr-2.0a/2012/03</namespace>
-		<className>org.enernoc.open.oadr2.xmpp.OadrDistributeEventPacket$Provider</className>
-	</iqProvider>
 </smackProviders>
