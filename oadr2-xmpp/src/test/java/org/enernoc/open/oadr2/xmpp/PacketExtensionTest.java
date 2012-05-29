@@ -2,13 +2,13 @@ package org.enernoc.open.oadr2.xmpp;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import java.io.StringWriter;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 
-import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
@@ -123,7 +123,7 @@ public class PacketExtensionTest {
 	    assertEquals("http://openadr.org/oadr-2.0a/2012/03", extension.getNamespace());
 	    Object pObj = extension.getPayload(); 
 	    assertNotNull( pObj );
-	    assert( pObj instanceof OadrDistributeEvent );
+	    assertTrue( pObj instanceof OadrDistributeEvent );
 	    OadrDistributeEvent payload = (OadrDistributeEvent)pObj;
 	    assertEquals("test-123", payload.getRequestID());
 	}
