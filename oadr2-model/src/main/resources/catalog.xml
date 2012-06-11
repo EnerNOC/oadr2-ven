@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="oadr_20a_032212.xsd" uri="${basedir}/src/main/resources/schema/oadr_20a_032212.xsd"/>
+    <system systemId="oadr_emix_20a_032212.xsd" uri="${basedir}/src/main/resources/schema/oadr_emix_20a_032212.xsd"/>
+    <system systemId="oadr_strm_20a_032212.xsd" uri="${basedir}/src/main/resources/schema/oadr_strm_20a_032212.xsd"/>
+    <system systemId="oadr_ei_20a_032212.xsd" uri="${basedir}/src/main/resources/schema/oadr_ei_20a_032212.xsd"/>
+    <system systemId="oadr_pyld_20a_032212.xsd" uri="${basedir}/src/main/resources/schema/oadr_pyld_20a_032212.xsd"/>
+    <system systemId="oadr_xcal_20a_032212.xsd" uri="${basedir}/src/main/resources/schema/oadr_xcal_20a_032212.xsd"/>
+</catalog>

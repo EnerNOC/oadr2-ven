@@ -29,6 +29,17 @@
             <artifactId>jaxb2-fluent-api</artifactId>
             <version>3.0</version>
         </dependency>
+        <dependency>
+			<groupId>javax.persistence</groupId>
+			<artifactId>persistence-api</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jvnet.hyperjaxb3</groupId>
+			<artifactId>hyperjaxb3-ejb-runtime</artifactId>
+			<version>0.5.6</version>
+		</dependency>          
+            
     </dependencies>
   
     <build>
@@ -46,6 +57,9 @@
 										<catalog>${basedir}/src/main/resources/catalog.cat</catalog>
                     <catalogResolver>org.jvnet.jaxb2.maven2.resolver.tools.ClasspathCatalogResolver</catalogResolver>
 										-->
+					
+					<catalog>${basedir}/src/main/resources/catalog.xml</catalog>					
+										
                     <extension>true</extension>
                     <schemaLanguage>AUTODETECT</schemaLanguage>
                     <args>
@@ -54,6 +68,7 @@
                         <arg>-XhashCode</arg>
                         <arg>-Xfluent-api</arg>
                         <args>-Xvalue-constructor</args>
+                        <arg>-Xhyperjaxb3-ejb</arg>
                     </args>
                     <plugins>
                         <plugin>
@@ -70,6 +85,11 @@
                             <groupId>org.jvnet.jaxb2_commons</groupId>
                             <artifactId>jaxb2-value-constructor</artifactId>
                             <version>3.0</version>
+                        </plugin>
+                        <plugin>
+                        	<groupId>org.jvnet.hyperjaxb3</groupId>
+                        	<artifactId>hyperjaxb3-ejb-plugin</artifactId>
+                        	<version>0.5.6</version>
                         </plugin>
                     </plugins>
                 </configuration>
