@@ -102,15 +102,16 @@
                         <configuration>
                             <generatePackage>org.enernoc.open.oadr2.model</generatePackage>
                             <schemaIncludes>
-                                <include>oadr_20a_032212.xsd</include>
-                                <include>oadr_ei_20a_032212.xsd</include>
-                                <include>oadr_emix_20a_032212.xsd</include>
-                                <include>oadr_pyld_20a_032212.xsd</include>
-                                <include>oadr_strm_20a_032212.xsd</include>
-                                <include>oadr_xcal_20a_032212.xsd</include>
+                                <include>oadr_20a.xsd</include>
+                                <include>oadr_ei_20a.xsd</include>
+                                <include>oadr_emix_20a.xsd</include>
+                                <include>oadr_pyld_20a.xsd</include>
+                                <include>oadr_strm_20a.xsd</include>
+                                <include>oadr_xcal_20a.xsd</include>
                             </schemaIncludes>
                             <bindingIncludes>
                                 <include>oadr2.xjb.xml</include>
+                                <include>custom_binding.xjc</include>
                             </bindingIncludes>
                         </configuration>
                     </execution>
