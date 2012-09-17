@@ -5,7 +5,12 @@
         xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
         xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd"
         extensionBindingPrefixes="xjc" 
-				version="2.1"> 
+				version="2.1">
+				 
+	<!-- See: http://docs.oracle.com/cd/E17802_01/webservices/webservices/docs/2.0/tutorial/doc/JAXBUsing4.html
+	     for documentation on customizing JAXB bindings
+	      -->
+	      
   <globalBindings generateElementProperty="false"> 
     <xjc:simple />
     <serializable uid="1" /> 
