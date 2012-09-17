@@ -21,7 +21,7 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 
-import org.enernoc.open.oadr2.model.EiMarketContext;
+import org.enernoc.open.oadr2.model.MarketContext;
 import org.enernoc.open.oadr2.model.OadrDistributeEvent.OadrEvent;
 import org.enernoc.open.oadr2.model.Properties.Tolerance;
 import org.enernoc.open.oadr2.model.Properties.Tolerance.Tolerate;
@@ -48,7 +48,6 @@ public class OadrDistributeEventTest {
 	Validator validator;
 	
 	ObjectFactory of = new ObjectFactory();
-	JAXBElement<? extends StreamPayloadBase> bigOldPayload = of.createSignalPayload(new SignalPayload(new PayloadFloat(1.0f)));
 	
 	@Before public void setup() throws Exception {
 		this.jaxbContext = JAXBContext.newInstance("org.enernoc.open.oadr2.model");
@@ -64,17 +63,17 @@ public class OadrDistributeEventTest {
 		OadrDistributeEvent distribEventPayload = new OadrDistributeEvent()
 			.withRequestID("test-123")
 			.withVtnID("vtn-123")
-			.withOadrEvent( new OadrEvent()
+			.withOadrEvents( new OadrEvent()
 				.withEiEvent(
 					new EiEvent()
 						.withEiTarget( new EiTarget()
-								.withVenID("ven-1234") )
+								.withVenIDs("ven-1234") )
 						.withEventDescriptor(new EventDescriptor()
 								.withEventID("event-1234")
 								.withModificationNumber(0)
 								.withEventStatus(EventStatusEnumeratedType.FAR)
 								.withPriority(1L)
-								.withEiMarketContext(new EventDescriptor.EiMarketContext(new EiMarketContext("http://enernoc.com")))
+								.withEiMarketContext(new EventDescriptor.EiMarketContext(new MarketContext("http://enernoc.com")))
 								.withCreatedDateTime(new DateTime(startDttm)))
 						.withEiActivePeriod(new EiActivePeriod()
 								.withProperties(new Properties()
@@ -84,14 +83,14 @@ public class OadrDistributeEventTest {
 										.withXEiNotification(new DurationPropType(new DurationValue("PT5S")))
 								))
 						.withEiEventSignals( new EiEventSignals()
-								.withEiEventSignal( new EiEventSignal()
+								.withEiEventSignals( new EiEventSignal()
 										.withSignalID("hi there")
 										.withCurrentValue(new CurrentValue(new PayloadFloat(1.0f)))
 										.withSignalName("simple")
 										.withSignalType(SignalTypeEnumeratedType.LEVEL)
 										.withIntervals( new Intervals()
-												.withInterval( new Interval()
-												    .withStreamPayloadBase(bigOldPayload)
+												.withIntervals( new Interval()
+												    .withStreamPayloadBase(of.createSignalPayload(new SignalPayload(new PayloadFloat(1.0f))))
 													//.withSignalPayload( new SignalPayload(new PayloadFloat(1.0f)))
 													.withDuration( new DurationPropType(new DurationValue("PT1M")))
 													.withUid(new Uid("abc"))
@@ -112,9 +111,9 @@ public class OadrDistributeEventTest {
 		
 		assertTrue(out.toString().length() > 0);
 		
-		assertEquals(1.0f, ((SignalPayload)distribEventPayload.getOadrEvent().get(0).getEiEvent()
-				.getEiEventSignals().getEiEventSignal().get(0)
-				.getIntervals().getInterval().get(0).getStreamPayloadBaseValue())
+		assertEquals(1.0f, ((SignalPayload)distribEventPayload.getOadrEvents().get(0).getEiEvent()
+				.getEiEventSignals().getEiEventSignals().get(0)
+				.getIntervals().getIntervals().get(0).getStreamPayloadBaseValue())
 				.getPayloadFloat().getValue(), 0);
 		
 		

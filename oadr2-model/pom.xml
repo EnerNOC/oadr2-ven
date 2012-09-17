@@ -19,27 +19,26 @@
     </properties>
   
     <dependencies>
-        <dependency>
-            <groupId>org.jvnet.jaxb2_commons</groupId>
-            <artifactId>jaxb2-basics-runtime</artifactId>
-            <version>0.6.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jvnet.jaxb2_commons</groupId>
-            <artifactId>jaxb2-fluent-api</artifactId>
-            <version>3.0</version>
-        </dependency>
-        <dependency>
-			<groupId>javax.persistence</groupId>
-			<artifactId>persistence-api</artifactId>
-			<version>1.0.2</version>
-		</dependency>
-		<dependency>
-			<groupId>org.jvnet.hyperjaxb3</groupId>
-			<artifactId>hyperjaxb3-ejb-runtime</artifactId>
-			<version>0.5.6</version>
-		</dependency>          
-            
+			<dependency>
+				<groupId>org.jvnet.jaxb2_commons</groupId>
+				<artifactId>jaxb2-basics-runtime</artifactId>
+				<version>0.6.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jvnet.jaxb2_commons</groupId>
+				<artifactId>jaxb2-fluent-api</artifactId>
+				<version>3.0</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.persistence</groupId>
+				<artifactId>persistence-api</artifactId>
+				<version>1.0.2</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jvnet.hyperjaxb3</groupId>
+				<artifactId>hyperjaxb3-ejb-runtime</artifactId>
+				<version>0.5.6</version>
+			</dependency>    
     </dependencies>
   
     <build>
@@ -67,7 +66,7 @@
                         <arg>-Xequals</arg>
                         <arg>-XhashCode</arg>
                         <arg>-Xfluent-api</arg>
-                        <args>-Xvalue-constructor</args>
+                        <arg>-Xvalue-constructor</arg>
                         <arg>-Xhyperjaxb3-ejb</arg>
                     </args>
                     <plugins>
@@ -111,7 +110,6 @@
                             </schemaIncludes>
                             <bindingIncludes>
                                 <include>oadr2.xjb.xml</include>
-                                <include>custom_binding.xjc</include>
                             </bindingIncludes>
                         </configuration>
                     </execution>
