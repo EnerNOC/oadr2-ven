@@ -59,9 +59,6 @@
 			<class name="EiActivePeriod"/>
             
 		</bindings>
-
-		<bindings node="//xs:element[@name='eiMarketContext']//xs:complexType">
-		</bindings>
 	
 		<bindings node="//xs:complexType[@name='eiEventSignalsType']">
 			<class name="EiEventSignals"/>
