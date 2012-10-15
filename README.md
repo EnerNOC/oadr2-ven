@@ -1,6 +1,6 @@
 # EnerNOC OpenADR 2.0 Reference Implementation #
 
-This is ENOC's open source reference implemntation for the OpenADR 2.0 spec.  
+This is ENOC's open source reference implementation for the OpenADR 2.0 spec.  
 
 See: http://openadr.org/
 
@@ -19,11 +19,11 @@ See: http://openadr.org/
 
 Use Maven: http://maven.apache.org
 
-Dependencies will be handled automatically.  
+Build by running `maven compile` from this directory.  Dependencies will be downloaded automatically.  
 
 To run XMPP unit tests with your Google Talk account, do the following:
 
-    mvn test -Dxmpp-username='enoc-open@gmail.com' -Dxmpp-pass='blah'
+    mvn test -Dxmpp-username='my_username@gmail.com' -Dxmpp-pass='blah'
 
 To see debug output from the XMPP stream, add the following flag:
 `-Dsmack.debugEnabled=true`
