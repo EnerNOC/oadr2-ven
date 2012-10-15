@@ -21,8 +21,8 @@
     <dependencies>
 				<dependency>
 					<artifactId>oadr2-model</artifactId>
-					<groupId>${pom.groupId}</groupId>
-					<version>${pom.version}</version>
+					<groupId>${project.groupId}</groupId>
+					<version>${project.version}</version>
 	      </dependency>
 				<dependency>
 					<groupId>org.igniterealtime.smack</groupId>
@@ -33,7 +33,7 @@
 					<groupId>org.igniterealtime.smack</groupId>
 					<artifactId>smackx</artifactId>
 					<version>3.2.1</version>
-          <scope>test runtime</scope>
+          <scope>runtime</scope>
 				</dependency>
 				<dependency>
 					<groupId>com.sun.xml.bind</groupId>
