@@ -13,27 +13,31 @@ import javax.xml.bind.Marshaller;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
+import org.enernoc.open.oadr2.model.CurrentValue;
+import org.enernoc.open.oadr2.model.DateTime;
+import org.enernoc.open.oadr2.model.Dtstart;
 import org.enernoc.open.oadr2.model.DurationPropType;
+import org.enernoc.open.oadr2.model.DurationValue;
+import org.enernoc.open.oadr2.model.EiActivePeriod;
 import org.enernoc.open.oadr2.model.EiEvent;
-import org.enernoc.open.oadr2.model.EiEvent.EiActivePeriod;
-import org.enernoc.open.oadr2.model.EiEvent.EiEventSignals;
-import org.enernoc.open.oadr2.model.EiEvent.EiEventSignals.EiEventSignal;
-import org.enernoc.open.oadr2.model.EiEvent.EiEventSignals.EiEventSignal.CurrentValue;
-import org.enernoc.open.oadr2.model.EiEvent.EiTarget;
-import org.enernoc.open.oadr2.model.EiEvent.EventDescriptor;
-import org.enernoc.open.oadr2.model.EiEvent.EventDescriptor.EiMarketContext;
+import org.enernoc.open.oadr2.model.EiEventSignal;
+import org.enernoc.open.oadr2.model.EiEventSignals;
+import org.enernoc.open.oadr2.model.EiTarget;
+import org.enernoc.open.oadr2.model.EventDescriptor;
+import org.enernoc.open.oadr2.model.EventDescriptor.EiMarketContext;
 import org.enernoc.open.oadr2.model.EventStatusEnumeratedType;
 import org.enernoc.open.oadr2.model.Interval;
-import org.enernoc.open.oadr2.model.Interval.SignalPayload;
 import org.enernoc.open.oadr2.model.Intervals;
+import org.enernoc.open.oadr2.model.MarketContext;
 import org.enernoc.open.oadr2.model.OadrDistributeEvent;
 import org.enernoc.open.oadr2.model.OadrDistributeEvent.OadrEvent;
+import org.enernoc.open.oadr2.model.ObjectFactory;
 import org.enernoc.open.oadr2.model.PayloadFloat;
 import org.enernoc.open.oadr2.model.Properties;
-import org.enernoc.open.oadr2.model.Properties.Dtstart;
 import org.enernoc.open.oadr2.model.Properties.Tolerance;
 import org.enernoc.open.oadr2.model.Properties.Tolerance.Tolerate;
 import org.enernoc.open.oadr2.model.ResponseRequiredType;
+import org.enernoc.open.oadr2.model.SignalPayload;
 import org.enernoc.open.oadr2.model.SignalTypeEnumeratedType;
 import org.enernoc.open.oadr2.model.Uid;
 import org.jivesoftware.smack.ConnectionConfiguration;
@@ -60,7 +64,7 @@ import org.junit.Test;
  */
 public class PacketExtensionTest {
 
-	static final String OADR2_XMLNS = "http://openadr.org/oadr-2.0a/2012/03";
+	static final String OADR2_XMLNS = "http://openadr.org/oadr-2.0a/2012/07";
 	
 	static final String username = System.getProperty("xmpp-username");
 	static final String passwd = System.getProperty("xmpp-pass");
@@ -117,10 +121,12 @@ public class PacketExtensionTest {
 	    
 	    Packet packet = packetCollector.getQueue().poll(5,TimeUnit.SECONDS);
 	    
+//	    Thread.sleep(1000000);
+	    
 	    assertNotNull(packet);
 	    OADR2PacketExtension extension = (OADR2PacketExtension)packet.getExtension(OADR2_XMLNS);
 	    assertEquals("oadrDistributeEvent", extension.getElementName());
-	    assertEquals("http://openadr.org/oadr-2.0a/2012/03", extension.getNamespace());
+	    assertEquals(OADR2_XMLNS, extension.getNamespace());
 	    Object pObj = extension.getPayload(); 
 	    assertNotNull( pObj );
 	    assertTrue( pObj instanceof OadrDistributeEvent );
@@ -150,38 +156,42 @@ public class PacketExtensionTest {
 	
 	protected OadrDistributeEvent createEventPayload() {
 		final XMLGregorianCalendar startDttm = xmlDataTypeFac.newXMLGregorianCalendar("2012-01-01T00:00:00Z");
+		final ObjectFactory oadrTypes = new ObjectFactory();
+		
 		return new OadrDistributeEvent()
 			.withRequestID("test-123")
 			.withVtnID("vtn-123")
-			.withOadrEvent( new OadrEvent()
+			.withOadrEvents( new OadrEvent()
 				.withEiEvent(
 					new EiEvent()
 						.withEiTarget( new EiTarget()
-								.withVenID("ven-1234") )
+								.withVenIDs("ven-1234") )
 						.withEventDescriptor(new EventDescriptor()
 								.withEventID("event-1234")
 								.withModificationNumber(0)
 								.withEventStatus(EventStatusEnumeratedType.FAR)
 								.withPriority(1L)
-								.withEiMarketContext(new EiMarketContext("http://enernoc.com"))
-								.withCreatedDateTime(startDttm))
+								.withEiMarketContext(new EiMarketContext(
+										new MarketContext("http://enernoc.com")))
+								.withCreatedDateTime(new DateTime(startDttm)))
 						.withEiActivePeriod(new EiActivePeriod()
 								.withProperties(new Properties()
-										.withDtstart(new Dtstart(startDttm))
-										.withDuration(new DurationPropType("PT1M"))
-										.withTolerance( new Tolerance(new Tolerate(null,"PT5S")))
-										.withXEiNotification(new DurationPropType("PT5S"))
+										.withDtstart(new Dtstart(new DateTime(startDttm)))
+										.withDuration(new DurationPropType(new DurationValue("PT1M")))
+										.withTolerance( new Tolerance(new Tolerate(new DurationValue("PT5S"))))
+										.withXEiNotification(new DurationPropType(new DurationValue("PT5S")))
 								))
 						.withEiEventSignals( new EiEventSignals()
-								.withEiEventSignal( new EiEventSignal()
+								.withEiEventSignals( new EiEventSignal()
 										.withSignalID("hi there")
 										.withCurrentValue(new CurrentValue(new PayloadFloat(1.0f)))
 										.withSignalName("simple")
 										.withSignalType(SignalTypeEnumeratedType.LEVEL)
 										.withIntervals( new Intervals()
-												.withInterval( new Interval()
-													.withSignalPayload( new SignalPayload(new PayloadFloat(1.0f)))
-													.withDuration( new DurationPropType("PT1M"))
+												.withIntervals( new Interval()
+													.withStreamPayloadBase( oadrTypes.createSignalPayload(
+															new SignalPayload(new PayloadFloat(1.0f))))
+													.withDuration( new DurationPropType(new DurationValue("PT1M")))
 													.withUid(new Uid("abc"))
 												)
 										)

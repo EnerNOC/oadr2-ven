@@ -28,7 +28,7 @@ class OADR2NamespacePrefixMapper extends NamespacePrefixMapper {
 //    	System.out.println("----------------- Asked for namespace for " + namespaceUri);
         if( "http://www.w3.org/2001/XMLSchema-instance".equals(namespaceUri) )
             return "xsi";
-        if( "http://openadr.org/oadr-2.0a/2012/03".equals(namespaceUri) )
+        if( "http://openadr.org/oadr-2.0a/2012/07".equals(namespaceUri) )
         	return requirePrefix ? "oadr2" : "";
         if( "http://docs.oasis-open.org/ns/energyinterop/201110".equals(namespaceUri) )
         	return "ei";
@@ -44,7 +44,7 @@ class OADR2NamespacePrefixMapper extends NamespacePrefixMapper {
     }
         
     public String[] getPreDeclaredNamespaceUris() {
-        return new String[] { "http://openadr.org/oadr-2.0a/2012/03", 
+        return new String[] { "http://openadr.org/oadr-2.0a/2012/07", 
         		"http://docs.oasis-open.org/ns/energyinterop/201110",
         		"http://docs.oasis-open.org/ns/energyinterop/201110/payloads", 
         		"http://docs.oasis-open.org/ns/emix/2011/06",
