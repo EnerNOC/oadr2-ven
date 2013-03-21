@@ -10,6 +10,7 @@ public class OADR2IQ extends IQ {
 	public OADR2IQ(PacketExtension payload) {
 		this.payload = payload;
 		this.addExtension(payload);
+		this.setType(IQ.Type.SET);
 	}
 
 	@Override public String getChildElementXML() {
