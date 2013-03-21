@@ -114,7 +114,7 @@ public class PacketExtensionTest {
 	@Test public void testPacketExtension() throws Exception {
 		
 		OADRPacketCollector packetCollector = new OADRPacketCollector();
-	    venConnection.addPacketListener(packetCollector, new OADRPacketFilter());
+	    venConnection.addPacketListener(packetCollector, new OADR2PacketFilter());
 	    
 	    IQ iq = new OADR2IQ(new OADR2PacketExtension(createEventPayload(), this.marshaller));
 	    iq.setTo(venConnection.getUser());
@@ -146,15 +146,6 @@ public class PacketExtensionTest {
 		}
 		
 		BlockingQueue<Packet> getQueue() { return this.packets; }
-	}
-	
-	class OADRPacketFilter implements PacketFilter {
-		@Override public boolean accept(Packet packet) {
-			// This namespace should match the filter used in smack.providers to 
-			// register the packet extension:
-//			System.out.println(packet.getClass().toString());
-			return packet.getExtension(OADR2_XMLNS) != null;
-		}
 	}
 	
 	protected OadrDistributeEvent createEventPayload() {
