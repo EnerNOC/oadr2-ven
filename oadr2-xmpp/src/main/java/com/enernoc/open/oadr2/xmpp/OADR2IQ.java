@@ -1,4 +1,4 @@
-package org.enernoc.open.oadr2.xmpp;
+package com.enernoc.open.oadr2.xmpp;
 
 import org.jivesoftware.smack.packet.IQ;
 import org.jivesoftware.smack.packet.PacketExtension;

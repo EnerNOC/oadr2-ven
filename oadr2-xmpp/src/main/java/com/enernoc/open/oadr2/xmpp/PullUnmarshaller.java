@@ -1,4 +1,4 @@
-package org.enernoc.open.oadr2.xmpp;
+package com.enernoc.open.oadr2.xmpp;
 // Original source can be found at:
 // http://java.net/projects/jaxb/sources/version1/content/trunk/jaxb-ri/samples/samples-src/pull-parser/src/PullUnmarshaller.java?rev=203
 

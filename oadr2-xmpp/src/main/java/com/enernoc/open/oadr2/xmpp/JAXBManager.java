@@ -1,4 +1,4 @@
-package org.enernoc.open.oadr2.xmpp;
+package com.enernoc.open.oadr2.xmpp;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -6,7 +6,7 @@ import javax.xml.bind.Marshaller;
 
 public class JAXBManager {
 
-	public static final String DEFAULT_JAXB_CONTEXT_PATH = "org.enernoc.open.oadr2.model";
+	public static final String DEFAULT_JAXB_CONTEXT_PATH = "com.enernoc.open.oadr2.model";
 	
 	JAXBContext jaxbContext;  // thread-safe
 	OADR2NamespacePrefixMapper nsMapper; // thread-safe

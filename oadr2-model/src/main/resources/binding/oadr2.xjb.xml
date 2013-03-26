@@ -6,7 +6,7 @@
         xmlns:hj="http://hyperjaxb3.jvnet.org/ejb/schemas/customizations"
         xmlns:orm="http://java.sun.com/xml/ns/persistence/orm"
         xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd"
-        extensionBindingPrefixes="xjc hj orm" 
+        extensionBindingPrefixes="xjc" 
 				version="2.1">
 				 
 	<!-- See: http://docs.oracle.com/cd/E17802_01/webservices/webservices/docs/2.0/tutorial/doc/JAXBUsing4.html
@@ -20,12 +20,14 @@
   
   
 	<bindings schemaLocation="../schema/oadr_ei_20a.xsd">
-	
+
+		<!--
 		<hj:persistence>
 			<hj:default-generated-id name="Hjid" transient="true">
 				<orm:column name="Hjid"/>
 			</hj:default-generated-id>
-		</hj:persistence>  
+		</hj:persistence>
+		-->
   
 		<bindings node="//xs:complexType[@name='QualifiedEventIDType']">
 			<class name="QualifiedEventID"/>

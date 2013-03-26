@@ -3,14 +3,14 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.enernoc.open.oadr2</groupId>
+    <groupId>com.enernoc.open.oadr2</groupId>
     <artifactId>oadr2-parent</artifactId>
     <packaging>pom</packaging>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.2-SNAPSHOT</version>
     <name>OpenADR2 Open Reference Implementation</name>
     <description>OpenADR 2.0 reference implementation, provided by EnerNOC
     </description>
-		<url>http://open.enernoc.org/openadr2</url>
+		<url>http://open.enernoc.com/code/</url>
 		<modules>
 			<module>oadr2-model</module>
 			<module>oadr2-xmpp</module>

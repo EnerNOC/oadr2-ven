@@ -1,4 +1,4 @@
-package org.enernoc.open.oadr2.xmpp;
+package com.enernoc.open.oadr2.xmpp;
 
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.PropertyException;

@@ -3,28 +3,28 @@
 	<iqProvider>
 		<elementName>oadrDistributeEvent</elementName>
 		<namespace>http://openadr.org/oadr-2.0a/2012/07</namespace>
-		<className>org.enernoc.open.oadr2.xmpp.XMPPExtensionProvider</className>
+		<className>com.enernoc.open.oadr2.xmpp.XMPPExtensionProvider</className>
 	</iqProvider>
 	<iqProvider>
 		<elementName>oadrCreatedEvent</elementName>
 		<namespace>http://openadr.org/oadr-2.0a/2012/07</namespace>
-		<className>org.enernoc.open.oadr2.xmpp.XMPPExtensionProvider</className>
+		<className>com.enernoc.open.oadr2.xmpp.XMPPExtensionProvider</className>
 	</iqProvider>
 	<iqProvider>
 		<elementName>oadrRequestEvent</elementName>
 		<namespace>http://openadr.org/oadr-2.0a/2012/07</namespace>
-		<className>org.enernoc.open.oadr2.xmpp.XMPPExtensionProvider</className>
+		<className>com.enernoc.open.oadr2.xmpp.XMPPExtensionProvider</className>
 	</iqProvider>
 	<iqProvider>
 		<elementName>oadrResponse</elementName>
 		<namespace>http://openadr.org/oadr-2.0a/2012/07</namespace>
-		<className>org.enernoc.open.oadr2.xmpp.XMPPExtensionProvider</className>
+		<className>com.enernoc.open.oadr2.xmpp.XMPPExtensionProvider</className>
 	</iqProvider>
 
 	<!-- For OADR payloads that occur in messages: -->
 	<extensionProvider>
 		<elementName>oadrDistributeEvent</elementName>
 		<namespace>http://openadr.org/oadr-2.0a/2012/07</namespace>
-		<className>org.enernoc.open.oadr2.xmpp.XMPPExtensionProvider</className>
+		<className>com.enernoc.open.oadr2.xmpp.XMPPExtensionProvider</className>
 	</extensionProvider>
 </smackProviders>

@@ -4,16 +4,16 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-	    <groupId>org.enernoc.open.oadr2</groupId>
+	    <groupId>com.enernoc.open.oadr2</groupId>
 	    <artifactId>oadr2-parent</artifactId>
-	    <version>0.1-SNAPSHOT</version>
+	    <version>0.2-SNAPSHOT</version>
     </parent>
     <artifactId>oadr2-xmpp</artifactId>
     <packaging>jar</packaging>
     <name>OpenADR2 Open Reference Implementation for XMPP</name>
     <description>XMPP client reference implementation for OpenADR 2.0, provided by EnerNOC
     </description>
-		<url>http://open.enernoc.org/openadr2</url>
+		<url>http://open.enernoc.com/code/#ven</url>
     
     <properties>
     </properties>
@@ -45,7 +45,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
-            <version>1.5.8</version>
+            <version>1.6.2</version>
         </dependency>				
     </dependencies>
   

@@ -1,8 +1,8 @@
-package org.enernoc.open.oadr2.xmpp;
+package com.enernoc.open.oadr2.xmpp;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-import org.enernoc.open.oadr2.model.OadrDistributeEvent;
+import com.enernoc.open.oadr2.model.OadrDistributeEvent;
 import org.jivesoftware.smack.filter.PacketFilter;
 import org.jivesoftware.smack.packet.Packet;
 

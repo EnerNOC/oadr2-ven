@@ -1,4 +1,4 @@
-package org.enernoc.open.oadr2.model;
+package com.enernoc.open.oadr2.model;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -21,10 +21,10 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 
-import org.enernoc.open.oadr2.model.MarketContext;
-import org.enernoc.open.oadr2.model.OadrDistributeEvent.OadrEvent;
-import org.enernoc.open.oadr2.model.Properties.Tolerance;
-import org.enernoc.open.oadr2.model.Properties.Tolerance.Tolerate;
+import com.enernoc.open.oadr2.model.MarketContext;
+import com.enernoc.open.oadr2.model.OadrDistributeEvent.OadrEvent;
+import com.enernoc.open.oadr2.model.Properties.Tolerance;
+import com.enernoc.open.oadr2.model.Properties.Tolerance.Tolerate;
 import org.junit.Before;
 import org.junit.Test;
 import org.xml.sax.SAXException;
@@ -50,7 +50,7 @@ public class OadrDistributeEventTest {
 	ObjectFactory of = new ObjectFactory();
 	
 	@Before public void setup() throws Exception {
-		this.jaxbContext = JAXBContext.newInstance("org.enernoc.open.oadr2.model");
+		this.jaxbContext = JAXBContext.newInstance("com.enernoc.open.oadr2.model");
 		this.marshaller = jaxbContext.createMarshaller();
 		xmlDataTypeFac = DatatypeFactory.newInstance();
 
