@@ -2,14 +2,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    <groupId>com.enernoc.open.oadr2</groupId>
-    <artifactId>oadr2-parent</artifactId>
-    <packaging>pom</packaging>
-    <version>0.2-SNAPSHOT</version>
-    <name>OpenADR2 Open Reference Implementation</name>
-    <description>OpenADR 2.0 reference implementation, provided by EnerNOC
-    </description>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.enernoc.open.oadr2</groupId>
+	<artifactId>oadr2-parent</artifactId>
+	<packaging>pom</packaging>
+	<version>0.2-SNAPSHOT</version>
+	<name>OpenADR2 Open Reference Implementation</name>
+	<description>OpenADR 2.0 reference implementation, provided by EnerNOC
+	</description>
 		<url>http://open.enernoc.com/code/</url>
 		<modules>
 			<module>oadr2-model</module>
@@ -32,10 +32,10 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>log4j</groupId>
-				<artifactId>log4j</artifactId>
-				<version>1.2.16</version>
-				<scope>runtime</scope>
+	<groupId>log4j</groupId>
+	<artifactId>log4j</artifactId>
+	<version>1.2.16</version>
+	<scope>runtime</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
@@ -45,12 +45,12 @@
 
 		<plugins>
 			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-				</configuration>
+	<artifactId>maven-compiler-plugin</artifactId>
+	<version>2.3.2</version>
+	<configuration>
+		<source>1.6</source>
+		<target>1.6</target>
+	</configuration>
 			</plugin>
 		</plugins>
 	</build>
@@ -69,7 +69,7 @@
 			<id>Codehaus.Snapshots</id>
 			<url>http://snapshots.repository.codehaus.org</url>
 			<snapshots>
-				<enabled>true</enabled>
+	<enabled>true</enabled>
 			</snapshots>
 		</repository>
 	</repositories>
@@ -86,19 +86,19 @@
 		<profile>
 			<id>tools</id>
 			<activation>
-				<property>
-					<name>java.vendor</name>
-					<value>Sun Microsystems Inc.</value>
-				</property>
+	<property>
+		<name>java.vendor</name>
+		<value>Sun Microsystems Inc.</value>
+	</property>
 			</activation>
 			<dependencies>
-				<dependency>
-					<groupId>com.sun</groupId>
-					<artifactId>tools</artifactId>
-					<version>${java.version}</version>
-					<scope>system</scope>
-					<systemPath>${java.home}/lib/tools.jar</systemPath>
-				</dependency>
+	<dependency>
+		<groupId>com.sun</groupId>
+		<artifactId>tools</artifactId>
+		<version>${java.version}</version>
+		<scope>system</scope>
+		<systemPath>${java.home}/lib/tools.jar</systemPath>
+	</dependency>
 			</dependencies>
 		</profile>
 	</profiles>
@@ -118,19 +118,19 @@
 			<email>tnichols@enernoc.com</email>
 			<timezone>-5</timezone>
 			<roles>
-				<role>Lead Developer</role>
+	<role>Lead Developer</role>
 			</roles>
 		</developer>
 	</developers>
 	<scm>
-		<developerConnection>git@github.com:EnerNOC/openadr2.git</developerConnection>
-		<connection>git@github.com:EnerNOC/openadr2.git</connection>
+		<developerConnection>git@github.com:EnerNOC/oadr2-ven.git</developerConnection>
+		<connection>git@github.com:EnerNOC/oadr2-ven.git</connection>
 		<tag>master</tag>
-		<url>http://github.com/EnerNOC/openadr2</url>
+		<url>http://github.com/EnerNOC/oadr2-ven</url>
 	</scm>
 
 	<issueManagement>
 		<system>GitHub</system>
-		<url>http://github.com/EnerNOC/openadr2/issues</url>
+		<url>http://github.com/EnerNOC/oadr2-ven/issues</url>
 	</issueManagement>
 </project>
