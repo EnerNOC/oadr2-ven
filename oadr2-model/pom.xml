@@ -6,7 +6,7 @@
     <parent>
 	    <groupId>org.enernoc.open.oadr2</groupId>
 	    <artifactId>oadr2-parent</artifactId>
-	    <version>0.1-SNAPSHOT</version>
+	    <version>0.1.0</version>
     </parent>
     <artifactId>oadr2-model</artifactId>
     <packaging>jar</packaging>

@@ -6,7 +6,7 @@
     <groupId>org.enernoc.open.oadr2</groupId>
     <artifactId>oadr2-parent</artifactId>
     <packaging>pom</packaging>
-    <version>0.1-SNAPSHOT</version>
+    <version>0.1.0</version>
     <name>OpenADR2 Open Reference Implementation</name>
     <description>OpenADR 2.0 reference implementation, provided by EnerNOC
     </description>
