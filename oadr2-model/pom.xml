@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>com.enernoc.open.oadr2</groupId>
 		<artifactId>oadr2-parent</artifactId>
-		<version>0.2-SNAPSHOT</version>
+		<version>0.3-SNAPSHOT</version>
 	</parent>
 	<artifactId>oadr2-model</artifactId>
 	<packaging>jar</packaging>
@@ -97,25 +97,39 @@
 				</configuration>
 				<executions>
 					<execution>
-						<id>oadr2-jaxb</id>
+						<id>oadr20a-jaxb</id>
 						<goals>
 							<goal>generate</goal>
 						</goals>
 						<configuration>
 							<generatePackage>com.enernoc.open.oadr2.model</generatePackage>
 							<schemaIncludes>
-								<include>oadr_20a.xsd</include>
-								<include>oadr_ei_20a.xsd</include>
-								<include>oadr_emix_20a.xsd</include>
-								<include>oadr_pyld_20a.xsd</include>
-								<include>oadr_strm_20a.xsd</include>
-								<include>oadr_xcal_20a.xsd</include>
+                <include>oadr_20a.xsd</include>
+                <include>oadr_ei_20a.xsd</include>
+                <include>oadr_emix_20a.xsd</include>
+                <include>oadr_pyld_20a.xsd</include>
+                <include>oadr_strm_20a.xsd</include>
+                <include>oadr_xcal_20a.xsd</include>
 							</schemaIncludes>
 							<bindingIncludes>
 								<include>oadr2.xjb.xml</include>
 							</bindingIncludes>
 						</configuration>
 					</execution>
+          <execution>
+            <id>oadr20b-jaxb</id>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <schemaIncludes>
+                <include>2.0b/*.xsd</include>
+              </schemaIncludes>
+              <bindingIncludes>
+                <include>oadr20b.xjb.xml</include>
+              </bindingIncludes>
+            </configuration>
+          </execution>
 				</executions>
 			</plugin>
 		</plugins>
