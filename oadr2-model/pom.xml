@@ -60,6 +60,7 @@
 
 					<catalog>${basedir}/src/main/resources/catalog.xml</catalog>
 
+          <specVersion>2.2</specVersion>
 					<extension>true</extension>
 					<schemaLanguage>AUTODETECT</schemaLanguage>
 					<args>
@@ -104,15 +105,10 @@
 						<configuration>
 							<generatePackage>com.enernoc.open.oadr2.model</generatePackage>
 							<schemaIncludes>
-                <include>oadr_20a.xsd</include>
-                <include>oadr_ei_20a.xsd</include>
-                <include>oadr_emix_20a.xsd</include>
-                <include>oadr_pyld_20a.xsd</include>
-                <include>oadr_strm_20a.xsd</include>
-                <include>oadr_xcal_20a.xsd</include>
+                <include>2.0a/*.xsd</include>
 							</schemaIncludes>
 							<bindingIncludes>
-								<include>oadr2.xjb.xml</include>
+								<include>oadr20a.xjb.xml</include>
 							</bindingIncludes>
 						</configuration>
 					</execution>

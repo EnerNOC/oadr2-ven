@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" 
+        xmlns:xsi="http://www.w3.org/2000/10/XMLSchema-instance"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+        xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd"
+        extensionBindingPrefixes="xjc" 
+				version="1.0">
+				 
+	<!-- See: http://docs.oracle.com/cd/E17802_01/webservices/webservices/docs/2.0/tutorial/doc/JAXBUsing4.html
+	     for documentation on customizing JAXB bindings
+	      -->
+	      
+  <globalBindings generateElementProperty="false"> 
+    <xjc:simple />
+    <serializable uid="1" /> 
+  </globalBindings> 
+  
+  <bindings schemaLocation="../schema/2.0b/oadr_20b.xsd">
+    <schemaBindings>
+      <package name="com.enernoc.open.oadr2.model.v20b" />         
+    </schemaBindings>
+  </bindings>
+  
+	<bindings schemaLocation="../schema/2.0b/oadr_ei_20b.xsd">
+	  <schemaBindings>
+      <package name="com.enernoc.open.oadr2.model.v20b.ei" />  	      
+	  </schemaBindings>
+
+		<bindings node="//xs:complexType[@name='QualifiedEventIDType']">
+			<class name="QualifiedEventID"/>
+		</bindings>						
+		
+		<bindings node="//xs:complexType[@name='IntervalType']">
+			<class name="Interval"/>
+		</bindings>
+		
+		<bindings node="//xs:complexType[@name='currentValueType']">
+			<class name="CurrentValue"/>
+		</bindings>
+	
+		<bindings node="//xs:simpleType[@name='ResponseCodeType']">
+			<class name="ResponseCode"/>	
+		</bindings>
+	
+		<bindings node="//xs:complexType[@name='eiEventType']">
+			<class name="EiEvent"/>      
+		</bindings>
+	
+		<bindings node="//xs:complexType[@name='eventDescriptorType']">
+			<class name="EventDescriptor"/>
+		</bindings>
+	
+		<bindings node="//xs:complexType[@name='eiActivePeriodType']">
+			<class name="EiActivePeriod"/>
+		</bindings>
+	
+		<bindings node="//xs:complexType[@name='eiEventSignalsType']">
+			<class name="EiEventSignals"/>
+		</bindings>
+	
+		<bindings node="//xs:complexType[@name='EiTargetType']">
+			<class name="EiTarget"/>
+		</bindings>
+	
+		<bindings node="//xs:complexType[@name='signalPayloadType']">
+			<class name="SignalPayload"/>
+		</bindings>
+		<!-- Seems there is a bug that prevents JAXB from changing the class 
+		  name for these enumerated types...
+		<bindings node="//xs:simpleType[@name='EventStatusEnumeratedType']">
+			<class name="EventStatus"/>
+		</bindings>
+		<bindings node="//xs:simpleType[@name='ResponseCodeType']">
+			<class name="ResponseCode"/>
+		</bindings>
+		<bindings node="//xs:simpleType[@name='SignalTypeEnumeratedType']">
+			<class name="SignalType"/>
+		</bindings>
+		<bindings node="//xs:simpleType[@name='OptTypeType']">
+			<class name="OptType"/>
+		</bindings>
+		 -->
+	</bindings>
+	
+	<bindings schemaLocation="../schema/2.0b/oadr_emix_20b.xsd">	
+    <schemaBindings>
+      <package name="com.enernoc.open.oadr2.model.v20b.emix" />
+    </schemaBindings>
+	  <bindings node="//xs:simpleType[@name='MarketContextType']">
+			<class name="MarketContext"/>
+		</bindings>
+	</bindings>
+	
+	<bindings schemaLocation="../schema/2.0b/oadr_strm_20b.xsd">
+    <schemaBindings>
+	    <package name="com.enernoc.open.oadr2.model.v20b.strm" />
+    </schemaBindings>
+	    
+		<bindings node="//xs:complexType[@name='StreamPayloadBaseType']">
+			<class name="StreamPayloadBase"/>
+		</bindings>
+	
+		<bindings node="//xs:complexType[@name='StreamBaseType']">
+			<class name="StreamBase"/>
+		</bindings>
+	</bindings>
+	
+	<bindings schemaLocation="../schema/2.0b/oadr_xcal_20b.xsd">
+    <schemaBindings>  
+      <package name="com.enernoc.open.oadr2.model.v20b.xcal" />
+    </schemaBindings>
+		<bindings node="//xs:simpleType[@name='DateTimeType']">
+			<class name="DateTime"/>
+		</bindings>
+		
+		<bindings node="//xs:simpleType[@name='DurationValueType']">
+			<class name="DurationValue"/>
+		</bindings>
+	</bindings>
+	
+  <bindings schemaLocation="../schema/2.0b/oadr_atom.xsd">
+     <schemaBindings>
+      <package name="com.enernoc.open.oadr2.model.v20b.atom" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../schema/2.0b/oadr_gml_20b.xsd">
+    <schemaBindings>
+      <package name="com.enernoc.open.oadr2.model.v20b.gml" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../schema/2.0b/oadr_greenbutton.xsd">
+    <schemaBindings>
+      <package name="com.enernoc.open.oadr2.model.v20b.greenbutton" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../schema/2.0b/oadr_power_20b.xsd">
+    <schemaBindings>
+      <package name="com.enernoc.open.oadr2.model.v20b.power" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../schema/2.0b/oadr_pyld_20b.xsd">
+    <schemaBindings>
+      <package name="com.enernoc.open.oadr2.model.v20b.pyld" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../schema/2.0b/oadr_siscale_20b.xsd">
+    <schemaBindings>
+      <package name="com.enernoc.open.oadr2.model.v20b.siscale" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../schema/2.0b/oadr_xml.xsd">
+    <schemaBindings>
+      <package name="com.enernoc.open.oadr2.model.v20b.xml" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../schema/2.0b/oadr_xmldsig.xsd">
+    <schemaBindings>
+      <package name="com.enernoc.open.oadr2.model.v20b.xmldsig" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../schema/2.0b/oadr_xmldsig11.xsd">
+    <schemaBindings>
+      <package name="com.enernoc.open.oadr2.model.v20b.xmldsig11" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../schema/2.0b/oadr_ISO_ISO3AlphaCurrencyCode_20100407.xsd">
+    <schemaBindings>
+      <package name="com.enernoc.open.oadr2.model.v20b.currency" />
+    </schemaBindings>
+  </bindings>
+</bindings> 

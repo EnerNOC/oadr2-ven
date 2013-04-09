@@ -19,7 +19,7 @@
   </globalBindings> 
   
   
-	<bindings schemaLocation="../schema/oadr_ei_20a.xsd">
+	<bindings schemaLocation="../schema/2.0a/oadr_ei_20a.xsd">
 
 		<!--
 		<hj:persistence>
@@ -35,7 +35,6 @@
 		
 		<bindings node="//xs:complexType[@name='IntervalType']">
 			<class name="Interval"/>
-            
 		</bindings>
 		
 		<bindings node="//xs:complexType[@name='currentValueType']">
@@ -44,27 +43,22 @@
 	
 		<bindings node="//xs:simpleType[@name='ResponseCodeType']">
 			<class name="ResponseCode"/>
-		
 		</bindings>
 	
 		<bindings node="//xs:complexType[@name='eiEventType']">
 			<class name="EiEvent"/>
-            
 		</bindings>
 	
 		<bindings node="//xs:complexType[@name='eventDescriptorType']">
 			<class name="EventDescriptor"/>
-            
 		</bindings>
 	
 		<bindings node="//xs:complexType[@name='eiActivePeriodType']">
 			<class name="EiActivePeriod"/>
-            
 		</bindings>
 	
 		<bindings node="//xs:complexType[@name='eiEventSignalsType']">
 			<class name="EiEventSignals"/>
-            
 		</bindings>
 	
 		<bindings node="//xs:complexType[@name='eiTargetType']">
@@ -92,13 +86,13 @@
 		 -->
 	</bindings>
 	
-	<bindings schemaLocation="../schema/oadr_emix_20a.xsd">	
+	<bindings schemaLocation="../schema/2.0a/oadr_emix_20a.xsd">	
 		<bindings node="//xs:simpleType[@name='MarketContextType']">
 			<class name="MarketContext"/>
 		</bindings>
 	</bindings>
 	
-	<bindings schemaLocation="../schema/oadr_strm_20a.xsd">
+	<bindings schemaLocation="../schema/2.0a/oadr_strm_20a.xsd">
       
 		<bindings node="//xs:complexType[@name='StreamPayloadBaseType']">
 			<class name="StreamPayloadBase"/>
@@ -109,15 +103,13 @@
 		</bindings>
 	</bindings>
 	
-	<bindings schemaLocation="../schema/oadr_xcal_20a.xsd">
+	<bindings schemaLocation="../schema/2.0a/oadr_xcal_20a.xsd">
 		<bindings node="//xs:simpleType[@name='DateTimeType']">
 			<class name="DateTime"/>
-		
 		</bindings>
 		
 		<bindings node="//xs:simpleType[@name='DurationValueType']">
 			<class name="DurationValue"/>
-		
 		</bindings>
 	</bindings>
 </bindings> 
