@@ -8,7 +8,23 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import org.jivesoftware.smack.packet.PacketExtension;
 
-class OADR2PacketExtension implements PacketExtension {
+import com.enernoc.open.oadr2.model.OadrCreatedEvent;
+import com.enernoc.open.oadr2.model.OadrDistributeEvent;
+import com.enernoc.open.oadr2.model.OadrRequestEvent;
+import com.enernoc.open.oadr2.model.OadrResponse;
+
+/**
+ * Packet extensions are created by XMPP extension implementations 
+ * that understand a particular namespace that appears in the body
+ * of an XMPP packet (message or IQ.)  In this case, this extension
+ * will be created whenever the OpenADR 2.0 namespace 
+ * (http://openadr.org/oadr-2.0[a or b]/2012/07) is encountered.  It's also
+ * used to serialize (send) a packet that contains an OpenADR payload.
+ * 
+ * @see PacketExtension
+ * @author tnichols
+ */
+public class OADR2PacketExtension implements PacketExtension {
 	
 	// JAXB object don't inherit a base class, so you'll need to cast to 
 	// the correct type, which you can infer based on the root element name
@@ -32,6 +48,13 @@ class OADR2PacketExtension implements PacketExtension {
 		this.marshaller = marshaller;
 	}
 	
+	/**
+	 * This will return the parsed OpenADR model object which will be 
+	 * one of:
+	 * {@link OadrDistributeEvent}, {@link OadrRequestEvent}, 
+	 * {@link OadrCreatedEvent} or {@link OadrResponse}.
+	 * @return the JAXB-parsed payload object.
+	 */
 	public Object getPayload() {
 		return this.payload;
 	}

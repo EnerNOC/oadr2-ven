@@ -3,15 +3,21 @@ package com.enernoc.open.oadr2.xmpp;
 import javax.xml.bind.JAXBException;
 
 import org.jivesoftware.smack.packet.IQ;
-import org.jivesoftware.smack.packet.PacketExtension;
 import org.jivesoftware.smack.provider.IQProvider;
 import org.jivesoftware.smack.provider.PacketExtensionProvider;
 import org.xmlpull.v1.XmlPullParser;
 
+/**
+ * This is an implementation of the Smack {@link IQProvider} to 
+ * provide automatic de-serialization of OpenADR payloads in XMPP.
+ * IQs that contain an OpenADR payload will automatically be parsed
+ * as {@link OADR2IQ} instances. 
+ * @author tnichols
+ */
 public class XMPPExtensionProvider implements PacketExtensionProvider, IQProvider {
 
-	JAXBManager jaxb;
-	PullUnmarshaller unmarshaller;
+	protected JAXBManager jaxb;
+	protected PullUnmarshaller unmarshaller;
 
 	public XMPPExtensionProvider() {
 		try { 
@@ -35,8 +41,8 @@ public class XMPPExtensionProvider implements PacketExtensionProvider, IQProvide
 	}
 	
 	@Override
-	public PacketExtension parseExtension(XmlPullParser pullParser) throws Exception {
-//		System.out.println( "++++++++++++++++++++++++++ Parsing Extension!!!" );
+	public OADR2PacketExtension parseExtension(XmlPullParser pullParser) throws Exception {
+		System.out.println( "++++++++++++++++++++++++++ Parsing Extension!!!" );
 		return new OADR2PacketExtension( unmarshaller.unmarshalSubTree(pullParser), this.jaxb );		
 	}
 

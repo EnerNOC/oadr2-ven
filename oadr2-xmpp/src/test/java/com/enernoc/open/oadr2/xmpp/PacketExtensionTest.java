@@ -10,6 +10,7 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.TimeUnit;
 
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
@@ -116,7 +117,7 @@ public class PacketExtensionTest {
 		OADRPacketCollector packetCollector = new OADRPacketCollector();
 	    venConnection.addPacketListener(packetCollector, new OADR2PacketFilter());
 	    
-	    IQ iq = new OADR2IQ(new OADR2PacketExtension(createEventPayload(), this.marshaller));
+	    IQ iq = new OADR2IQ(createEventPayload(), this.marshaller);
 	    iq.setTo(venConnection.getUser());
 	    iq.setType(IQ.Type.SET);
 	    
@@ -127,13 +128,21 @@ public class PacketExtensionTest {
 //	    Thread.sleep(1000000);
 	    
 	    assertNotNull(packet);
-	    OADR2PacketExtension extension = (OADR2PacketExtension)packet.getExtension(OADR2_XMLNS);
+	    assertTrue( packet instanceof OADR2IQ );
+	    Object payload1 = ((OADR2IQ)packet).getOADRPayload();
+	    XmlRootElement annotation = payload1.getClass().getAnnotation( XmlRootElement.class ); 
+	    assertEquals( OADR2_XMLNS, annotation.namespace() );
+	    assertEquals( "oadrDistributeEvent", annotation.name() );
+        assertTrue( payload1 instanceof OadrDistributeEvent );
+	    
+        OADR2PacketExtension extension = (OADR2PacketExtension)packet.getExtension(OADR2_XMLNS);
 	    assertEquals("oadrDistributeEvent", extension.getElementName());
 	    assertEquals(OADR2_XMLNS, extension.getNamespace());
 	    Object pObj = extension.getPayload(); 
 	    assertNotNull( pObj );
 	    assertTrue( pObj instanceof OadrDistributeEvent );
 	    OadrDistributeEvent payload = (OadrDistributeEvent)pObj;
+        assertEquals( payload1, payload );
 	    assertEquals("test-123", payload.getRequestID());
 	}
 	
