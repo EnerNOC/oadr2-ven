@@ -118,6 +118,7 @@
               <goal>generate</goal>
             </goals>
             <configuration>
+              <forceRegenerate>true</forceRegenerate>
               <schemaIncludes>
                 <include>2.0b/*.xsd</include>
               </schemaIncludes>
