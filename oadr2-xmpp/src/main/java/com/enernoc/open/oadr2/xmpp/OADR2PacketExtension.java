@@ -5,6 +5,7 @@ import java.io.StringWriter;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlSchema;
 
 import org.jivesoftware.smack.packet.PacketExtension;
 
@@ -66,7 +67,10 @@ public class OADR2PacketExtension implements PacketExtension {
 
 	@Override public String getNamespace() {
 //		return this.payload.getName().getNamespaceURI();
-		return this.payload.getClass().getAnnotation(XmlRootElement.class).namespace();
+	    String namespace = this.payload.getClass().getAnnotation(XmlRootElement.class).namespace();
+	    if ( "##default".equals( namespace ) )
+	        namespace = this.payload.getClass().getPackage().getAnnotation( XmlSchema.class ).namespace();
+		return namespace;
 	}
 
 	@Override public String toXML() {

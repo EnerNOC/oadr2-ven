@@ -21,10 +21,23 @@
 		<className>com.enernoc.open.oadr2.xmpp.XMPPExtensionProvider</className>
 	</iqProvider>
 
+  <iqProvider>
+    <elementName>oadrSignedObject</elementName>
+    <namespace>http://openadr.org/oadr-2.0b/2012/07</namespace>
+    <className>com.enernoc.open.oadr2.xmpp.v20b.XMPPExtensionProvider</className>
+  </iqProvider>
+
 	<!-- For OADR payloads that occur in messages: -->
 	<extensionProvider>
 		<elementName>oadrDistributeEvent</elementName>
 		<namespace>http://openadr.org/oadr-2.0a/2012/07</namespace>
 		<className>com.enernoc.open.oadr2.xmpp.XMPPExtensionProvider</className>
 	</extensionProvider>
+
+  <extensionProvider>
+    <elementName>oadrSignedObject</elementName>
+    <namespace>http://openadr.org/oadr-2.0b/2012/07</namespace>
+    <className>com.enernoc.open.oadr2.xmpp.v20b.XMPPExtensionProvider</className>
+  </extensionProvider>
+
 </smackProviders>
