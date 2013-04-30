@@ -42,7 +42,7 @@ public class XMPPExtensionProvider implements PacketExtensionProvider, IQProvide
 	
 	@Override
 	public OADR2PacketExtension parseExtension(XmlPullParser pullParser) throws Exception {
-		System.out.println( "++++++++++++++++++++++++++ Parsing Extension!!!" );
+//		System.out.println( "++++++++++++++++++++++++++ Parsing Extension!!!" );
 		return new OADR2PacketExtension( unmarshaller.unmarshalSubTree(pullParser), this.jaxb );		
 	}
 
