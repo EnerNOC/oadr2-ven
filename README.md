@@ -36,6 +36,9 @@ To see debug output from the XMPP stream, add the following flag:
 
 ## License ##
 
-This code is released under the Apache 2.0 software license.  Please take it 
-and use the code in your (commercial or open source) product.  Contributions 
+This code is released under the Apache 2.0 software license except where otherwise noted.  
+Please take it and use the code in your (commercial or open source) product.  Contributions 
 back to this project are also welcome!
+
+Note that `PullUnmarshaller.java` is *not* copyright EnerNOC, it was adapted from Sun/ 
+java.net code and is licensed under either GPL v2 + classpath exception or the CDDL.  
