@@ -15,6 +15,7 @@
 	<url>http://open.enernoc.com/code/#ven</url>
 
 	<properties>
+	 <jaxb.version>2.2</jaxb.version>
 	</properties>
 
 	<dependencies>
@@ -60,7 +61,7 @@
 
 					<catalog>${basedir}/src/main/resources/catalog.xml</catalog>
 
-          <specVersion>2.2</specVersion>
+          <specVersion>${jaxb.version}</specVersion>
 					<extension>true</extension>
 					<schemaLanguage>AUTODETECT</schemaLanguage>
 					<args>
@@ -131,4 +132,15 @@
 			</plugin>
 		</plugins>
 	</build>
+	<profiles>
+    <profile>
+			<id>jdk16</id>
+			<activation>
+				<jdk>1.6</jdk>
+			</activation>
+			<properties>
+				<jaxb.version>2.1</jaxb.version>
+			</properties>
+    </profile>
+  </profiles>
 </project>

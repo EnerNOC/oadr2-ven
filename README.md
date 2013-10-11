@@ -34,6 +34,10 @@ To see debug output from the XMPP stream, add the following flag:
 `-Dsmack.debugEnabled=true`
 
 
+**Note**: Some folks have reported trouble with JAXB generation under Java 6. If 
+you experience issues, please try building with a Java 7 SDK.
+
+
 ## License ##
 
 This code is released under the Apache 2.0 software license except where otherwise noted.  
