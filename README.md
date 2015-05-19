@@ -4,8 +4,8 @@ This is part of EnerNOC's open source reference implementation for the OpenADR 2
 
 See: http://openadr.org/
 
-This project provides the building blocks for imlementing a VEN client.  In particular,
-it aims to provide protocol bindings.  It *does not* actually implment any service 
+This project provides the building blocks for implementing a VEN client.  In particular,
+it aims to provide protocol bindings.  It *does not* actually implement any service 
 functionality (at least not yet.)  But it should provide enough at least for someone to 
 start implementing OpenADR 2.0 services. 
 
